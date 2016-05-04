@@ -2,7 +2,8 @@
   "name": "conFusion",
   "private": true,
   "devDependencies": {
-    "es6-promise": "^3.1.2"
+    "es6-promise": "^3.1.2",
+    "gulp-ng-annotate": "^2.0.0"
   },
   "engines": {
     "node": ">=0.10.0"
