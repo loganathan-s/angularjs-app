@@ -59,7 +59,7 @@ angular.module('confusionApp', [])
     .controller('DishCommentController', ['$scope', function($scope) {
         $scope.comment = {name:"", rating:"5", comment:""};
         $scope.submitComment = function () {
-            $scope.comment.date = Date.now()
+            $scope.comment.date = Date.now();
             $scope.dish.comments.push($scope.comment);
             $scope.comment = {name:"", rating:"5", comment:""};
             $scope.commentForm.$setPristine();
