@@ -3,39 +3,44 @@
 angular.module('confusionApp', ['ui.router'])
 .config(function($stateProvider, $urlRouterProvider) {
         $stateProvider
-                    // route for the home page
+        
+            // route for the home page
             .state('app', {
                 url:'/',
                 views: {
                     'header': {
-                        templateUrl : '/header.html'
+                        templateUrl : '/header.html',
                     },
                     'content': {
-                        template : '<h1>To be Completed</h1>',
+                        templateUrl : '/home.html',
                         controller  : 'IndexController'
                     },
                     'footer': {
-                        templateUrl : '/footer.html'
+                        templateUrl : '/footer.html',
                     }
                 }
+
             })
-                    // route for the aboutus page
+        
+            // route for the aboutus page
             .state('app.aboutus', {
                 url:'aboutus',
                 views: {
                     'content@': {
-                        template: '<h1>To be Completed</h1>'
-                   }
+                        templateUrl : '/aboutus.html',
+                        controller  : 'AboutController'                  
+                    }
                 }
             })
-                    // route for the contactus page
+        
+            // route for the contactus page
             .state('app.contactus', {
                 url:'contactus',
                 views: {
                     'content@': {
                         templateUrl : '/contactus.html',
-                        controller  : 'ContactController'
-                     }
+                        controller  : 'ContactController'                  
+                    }
                 }
             })
 
@@ -49,6 +54,27 @@ angular.module('confusionApp', ['ui.router'])
                     }
                 }
             })
+            // route for the aboutus page
+            .state('app.leader', {
+                url: 'leader',
+                views: {
+                    'content@': {
+                        templateUrl : '/aboutus.html',
+                        controller  : 'AboutController'
+                    }
+                }
+            })
+
+            // route for the aboutus page
+            .state('app.leaderdetails', {
+                  url: 'leader',
+                  views: {
+                    'content@': {
+                              templateUrl : '/aboutus.html',
+                              controller  : 'AboutController'
+                                }
+                      }
+                })
 
             // route for the dishdetail page
             .state('app.dishdetails', {
@@ -60,5 +86,7 @@ angular.module('confusionApp', ['ui.router'])
                    }
                 }
             });
-            $urlRouterProvider.otherwise('/');
-    });
+    
+        $urlRouterProvider.otherwise('/');
+    })
+;

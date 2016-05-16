@@ -61,10 +61,21 @@ angular.module('confusionApp')
     .controller('DishCommentController', ['$scope', function($scope) {
         $scope.comment = {name:"", rating:"5", comment:""};
         $scope.submitComment = function () {
-            $scope.comment.date = Date.now();
+            $scope.comment.date = new Date().toISOString();
             $scope.dish.comments.push($scope.comment);
             $scope.comment = {name:"", rating:"5", comment:""};
             $scope.commentForm.$setPristine();
         };
-    }]);
+    }])
+    .controller('IndexController', ['$scope','$stateParams','featuredFactory', function($scope, $stateParams, featuredFactory) {
+            $scope.dish = featuredFactory.getDish();
+            $scope.promotion  = featuredFactory.getPromotion();
+            $scope.leader = featuredFactory.getLeader();
+        }])
+
+      .controller('AboutController', ['$scope','$stateParams', 'corporateFactory', function($scope, $stateParams,corporateFactory) {
+                 $scope.leaders= corporateFactory.getLeaders();
+                 var leader = corporateFactory.getLeader(parseInt($stateParams.id,10));
+                  $scope.leader = leader;
+              }]);
 
