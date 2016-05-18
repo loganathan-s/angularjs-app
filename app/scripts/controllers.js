@@ -4,7 +4,13 @@ angular.module('confusionApp')
     .controller('MenuController', ['$scope', 'menuFactory', function($scope, menuFactory) {
         $scope.tab = 1;
         $scope.filtText = '';
-        $scope.dishes= menuFactory.getDishes();
+        $scope.dishes= [];
+        $scope.dishes= menuFactory.getDishes()
+            .then(
+            function(response) {
+                $scope.dishes = response.data;
+            }
+        );
 
         $scope.select = function(setTab) {
             $scope.tab = setTab;
@@ -54,7 +60,14 @@ angular.module('confusionApp')
     }])
 
     .controller('DishDetailController', ['$scope', '$stateParams', 'menuFactory', function($scope, $stateParams, menuFactory) {
-        var dish = menuFactory.getDish(parseInt($stateParams.id,10));
+        $scope.dish = {};
+        menuFactory.getDish(parseInt($stateParams.id,10))
+            .then(
+            function(response){
+                console.log(1111111111111111111111111111111111111)
+                $scope.dish = response.data;
+                $scope.showDish=true;
+            });
         $scope.dish = dish;
     }])
 
