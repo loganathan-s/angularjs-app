@@ -1,6 +1,18 @@
 bower install;npm install gulp jshint gulp-jshint jshint-stylish gulp-imagemin gulp-concat gulp-uglify gulp-minify-css gulp-usemin gulp-cache gulp-changed gulp-rev gulp-rename gulp-notify  browser-sync del --save-dev;npm install json-server -g;
+bower install ng-resource -S
+sudo npm install jasmine-core --save-dev
+sudo npm install karma-cli -g
+sudo npm install karma-jasmine --save-dev
+sudo npm install phantomjs karma-phantomjs-launcher karma-chrome-launcher --save-dev
+bower install angular-mocks -S
+
+
 
 
 TO RUN JSON SERVER:
 1. cd json_server
 2. json-server --watch db.json -p 3001
+
+TO RUN UNIT TESTS:
+1. cd tests
+2. karma start karma.conf.js
