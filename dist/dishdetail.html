@@ -44,11 +44,11 @@
             <div class="col-xs-9 col-xs-offset-1" ng-controller="DishCommentController">
                <ul class="list-unstyled">
                      <li class="media">
-		     <blockquote>
+		            <blockquote>
                         <p>{{comment.rating}} rating</p>
                         <p>{{comment.comment}}</p>
                         <footer>{{comment.name}} {{ dish.comment.date | date:'MMM, d, yyyy'}}</footer>
-			</blockquote>
+			        </blockquote>
                      </li>   
                </ul>
                <form class="form-horizontal" name="commentForm" ng-submit="submitComment()" novalidate>
