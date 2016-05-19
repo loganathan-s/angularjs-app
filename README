@@ -5,6 +5,8 @@ sudo npm install karma-cli -g
 sudo npm install karma-jasmine --save-dev
 sudo npm install phantomjs karma-phantomjs-launcher karma-chrome-launcher --save-dev
 bower install angular-mocks -S
+sudo npm install protractor -g
+sudo webdriver-manager update
 
 
 
@@ -16,3 +18,9 @@ TO RUN JSON SERVER:
 TO RUN UNIT TESTS:
 1. cd tests
 2. karma start karma.conf.js
+
+TO RUN Integration/E2E TESTS:
+1. Run gulp watch
+2. Run Json Server
+3. cd tests/
+4. protractor protractor.conf.js
