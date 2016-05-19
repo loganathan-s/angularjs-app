@@ -64,11 +64,9 @@ angular.module('confusionApp')
         menuFactory.getDish(parseInt($stateParams.id,10))
             .then(
             function(response){
-                console.log(1111111111111111111111111111111111111)
                 $scope.dish = response.data;
                 $scope.showDish=true;
             });
-        $scope.dish = dish;
     }])
 
     .controller('DishCommentController', ['$scope', function($scope) {
