@@ -87,7 +87,7 @@ angular.module('confusionApp')
             $scope.comment = {rating:5, comment:"", author:"", date:""};
         };
     }])
-    .controller('IndexController', ['$scope','$stateParams','menuFactory','featuredFactory', function($scope, $stateParams, menuFactory, featuredFactory) {
+    .controller('IndexController', ['$scope','$stateParams','menuFactory','corporateFactory', function($scope, $stateParams, menuFactory, corporateFactory) {
         $scope.showDish = true;
         $scope.message="Loading ...";
         $scope.dish = menuFactory.getDishes().get({id:0}).$promise.then(
@@ -100,13 +100,35 @@ angular.module('confusionApp')
             }
         );
       //  $scope.dish = featuredFactory.getDish();
-        $scope.promotion  = featuredFactory.getPromotion();
-        $scope.leader = featuredFactory.getLeader();
+        //$scope.promotion  = corporateFactory.getPromotion();
+        $scope.promotion = corporateFactory.getPromotions().get({id:0}).$promise.then(
+            function(response){
+                $scope.leader = response;
+            },
+            function(response) {
+                $scope.message = "Error: "+response.status + " " + response.statusText;
+            }
+        );
+        $scope.leader = corporateFactory.getLeaders().get({id:0}).$promise.then(
+            function(response){
+                $scope.leader = response;
+            },
+            function(response) {
+                $scope.message = "Error: "+response.status + " " + response.statusText;
+            }
+        );
         }])
 
       .controller('AboutController', ['$scope','$stateParams', 'corporateFactory', function($scope, $stateParams,corporateFactory) {
-                 $scope.leaders= corporateFactory.getLeaders();
-                 var leader = corporateFactory.getLeader(parseInt($stateParams.id,10));
+        $scope.message = "Loading"
+                 $scope.leaders= corporateFactory.getLeaders().query( function(response) {
+                         $scope.leaders = response;
+                         $scope.showMenu = true;
+                     },
+                     function(response) {
+                         $scope.message = "Error: "+response.status + " " + response.statusText;
+                     });
+                 var leader = corporateFactory.getLeaders(parseInt($stateParams.id,10));
                   $scope.leader = leader;
               }]);
 
