@@ -43,20 +43,27 @@ angular.module('confusionApp')
         $scope.channels = channels;
         $scope.invalidChannelSelection = false;
     }])
-    .controller('FeedbackController', ['$scope', function($scope) {
+    .controller('FeedbackController', ['$scope', '$stateParams', 'feedbackFactory', function($scope, $stateParams, feedbackFactory) {
+        $scope.showMessage = false;
         $scope.sendFeedback = function() {
-            console.log($scope.feedback);
-            if ($scope.feedback.agree && ($scope.feedback.mychannel === "")&& !$scope.feedback.mychannel) { $scope.invalidChannelSelection = true;
-                console.log('incorrect');
-            }
+        if ($scope.feedback.agree && ($scope.feedback.mychannel === "")&& !$scope.feedback.mychannel) { $scope.invalidChannelSelection = true;
+          console.log('incorrect');
+         }
             else {
-                $scope.invalidChannelSelection = false;
-                $scope.feedback = {mychannel:"", firstName:"", lastName:"",
-                    agree:false, email:"" };
-                $scope.feedback.mychannel="";
-
-                $scope.feedbackForm.$setPristine();
-                console.log($scope.feedback);
+              $scope.showMessage = true;
+              feedbackFactory.getFeedbacks().save($scope.feedback, function(response) {
+                   console.log(response);
+                   $scope.message = "Feedback Saved";
+                   $scope.error = false;
+                 },
+                 function(response) {
+                   $scope.message = "Error: "+response.status + " " + response.statusText;
+                   $scope.error = true;
+                });
+              $scope.invalidChannelSelection = false;
+              $scope.feedback = {mychannel:"", firstName:"", lastName:"", agree:false, email:"" };
+              $scope.feedbackForm.$setPristine();
+              console.log($scope.feedback);
             }
         };
     }])
@@ -103,7 +110,7 @@ angular.module('confusionApp')
         //$scope.promotion  = corporateFactory.getPromotion();
         $scope.promotion = corporateFactory.getPromotions().get({id:0}).$promise.then(
             function(response){
-                $scope.leader = response;
+                $scope.promotion = response;
             },
             function(response) {
                 $scope.message = "Error: "+response.status + " " + response.statusText;
@@ -120,7 +127,7 @@ angular.module('confusionApp')
         }])
 
       .controller('AboutController', ['$scope','$stateParams', 'corporateFactory', function($scope, $stateParams,corporateFactory) {
-        $scope.message = "Loading"
+        $scope.message = "Loading";
                  $scope.leaders= corporateFactory.getLeaders().query( function(response) {
                          $scope.leaders = response;
                          $scope.showMenu = true;

@@ -210,6 +210,132 @@
     }
   ],
   "feedback": [
-
+    {
+      "mychannel": "tel",
+      "firstName": "Loganathan",
+      "lastName": "Sellappa",
+      "agree": true,
+      "email": "loganathan.ms@gmail.com",
+      "tel": {
+        "areaCode": "123",
+        "number": "123456"
+      },
+      "comments": "http://localhost:3000/#/contactus",
+      "id": 1
+    },
+    {
+      "mychannel": "",
+      "firstName": "Loganathan",
+      "lastName": "dsa",
+      "agree": false,
+      "email": "loganathan.ms@gmail.com",
+      "comments": "sda",
+      "id": 2
+    },
+    {
+      "mychannel": "tel",
+      "firstName": "Feedback",
+      "lastName": "Sellappa",
+      "agree": true,
+      "email": "loganathan.ms@gmail.com",
+      "tel": {
+        "areaCode": "123",
+        "number": "212121"
+      },
+      "comments": "Your Feedback",
+      "id": 3
+    },
+    {
+      "mychannel": "",
+      "firstName": "",
+      "lastName": "",
+      "agree": false,
+      "email": "",
+      "id": 4
+    },
+    {
+      "mychannel": "tel",
+      "firstName": "Loganathan",
+      "lastName": "Sellapa",
+      "agree": true,
+      "email": "loganathan.ms@gmail.com",
+      "tel": {
+        "areaCode": "123",
+        "number": "12345"
+      },
+      "comments": "May we contact you?",
+      "id": 5
+    },
+    {
+      "mychannel": "tel",
+      "firstName": "Loganathan",
+      "lastName": "Sellapa",
+      "agree": true,
+      "email": "loganathan.ms@gmail.com",
+      "tel": {
+        "areaCode": "123",
+        "number": "12345"
+      },
+      "comments": "Your Feedback",
+      "id": 6
+    },
+    {
+      "mychannel": "",
+      "firstName": "",
+      "lastName": "",
+      "agree": false,
+      "email": "",
+      "id": 7
+    },
+    {
+      "mychannel": "",
+      "firstName": "Loganathan",
+      "lastName": "Sellapa",
+      "agree": false,
+      "email": "loganathan.ms@gmail.com",
+      "tel": {
+        "areaCode": "123",
+        "number": "12345"
+      },
+      "comments": "sada",
+      "id": 8
+    },
+    {
+      "mychannel": "",
+      "firstName": "",
+      "lastName": "",
+      "agree": false,
+      "email": "",
+      "id": 9
+    },
+    {
+      "mychannel": "",
+      "firstName": "",
+      "lastName": "",
+      "agree": false,
+      "email": "",
+      "id": 10
+    },
+    {
+      "mychannel": "",
+      "firstName": "",
+      "lastName": "",
+      "agree": false,
+      "email": "",
+      "id": 11
+    },
+    {
+      "mychannel": "tel",
+      "firstName": "Loganathan",
+      "lastName": "Sellappa",
+      "agree": true,
+      "email": "loganathan.ms@gmail.com",
+      "tel": {
+        "areaCode": "123",
+        "number": "23131"
+      },
+      "comments": "wq",
+      "id": 12
+    }
   ]
 }
